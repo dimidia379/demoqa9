@@ -2,6 +2,7 @@ package guru;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import static com.codeborne.selenide.Selectors.*;
@@ -10,9 +11,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTest {
 
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.browserSize = "1920x1080";
+    }
+
     @Test
     void formTest() {
-        Configuration.browserSize = "1920x1080";
         open("https://demoqa.com/automation-practice-form");
 
         $("#firstName").sendKeys("Jessica");
