@@ -9,6 +9,8 @@ repositories {
 dependencies {
     testImplementation (
             "com.codeborne:selenide:5.25.0",
+            "org.slf4j:slf4j-simple:1.6.2",
+            "com.github.javafaker:javafaker:0.12",
             "org.junit.jupiter:junit-jupiter:5.8.0")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.0"
 }
