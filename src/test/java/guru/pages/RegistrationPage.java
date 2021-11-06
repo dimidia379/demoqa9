@@ -96,6 +96,11 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setBirthday(String day, String month, String year){
+        calendar.setDate(day, month, year);
+        return this;
+    }
+
     public RegistrationPage submitForm(){
         submitButton.click();
         return this;
