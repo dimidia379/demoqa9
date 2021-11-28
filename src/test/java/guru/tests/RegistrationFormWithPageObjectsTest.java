@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import guru.pages.RegistrationPage;
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

@@ -8,13 +8,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static java.lang.String.format;
+
 public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");  //убрать дефолт?
+//        String login = OwnerTests.credentials.login();
+//        String password = OwnerTests.credentials.password();
+        Configuration.remote = format("https://%s:%s@%s", OwnerTests.login, OwnerTests.password, url);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);

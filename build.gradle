@@ -32,6 +32,7 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
             "org.assertj:assertj-core:3.19.0",
+            "org.aeonbits.owner:owner:1.0.12",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.29",
@@ -44,6 +45,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 
     testLogging {
         lifecycle {
@@ -52,3 +54,9 @@ tasks.withType(Test) {
         }
     }
 }
+
+task owner_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags "owner"
+        }
+    }
