@@ -16,10 +16,12 @@ public class TestBase {
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");  //убрать дефолт?
-//        String login = OwnerTests.credentials.login();
-//        String password = OwnerTests.credentials.password();
-        Configuration.remote = format("https://%s:%s@%s", OwnerTests.login, OwnerTests.password, url);
+
+        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+        String login = OwnerTests.credentials.login();
+        String password = OwnerTests.credentials.password();
+        Configuration.remote = format("https://%s:%s@%s", login, password, url);
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
